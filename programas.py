@@ -15,6 +15,13 @@ class Filme:
 	def nome(self, novo_nome):
 		self.__nome = novo_nome.title()
 
+	@property
+	def likes(self):
+		return self.__likes
+
+	def dar_like(self):
+		self.__likes += 1
+
 	
 
 class Serie:
@@ -32,6 +39,13 @@ class Serie:
 	@nome.setter
 	def nome(self, novo_nome):
 		self.__nome = novo_nome.title()
+
+	@property
+	def likes(self):
+		return self.__likes
+
+	def dar_like(self):
+		self.__likes += 1
 
 filme = Filme('homem aranha', 2002, 120)
 print(filme.nome)
