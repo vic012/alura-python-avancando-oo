@@ -32,6 +32,15 @@ class Serie(Programa):
 		super().__init__(nome, ano)
 		self.temporadas = temporadas
 
-'''filme = Filme('homem aranha', 2002, 120)
+filme = Filme('homem aranha', 2002, 120)
 filme.dar_like()
-print(f'{filme.nome} - {filme.duracao} : {filme.likes}')'''
+#print(f'{filme.nome} - {filme.duracao} : {filme.likes}')
+serie = Serie('stranger things', 2016, 4)
+serie.dar_like()
+serie.dar_like()
+
+filmes_e_series = [filme, serie]
+
+for programa in filmes_e_series:
+	detalhes = programa.duracao if hasattr(programa, 'duracao') else programa.temporadas
+	print(f'{programa.nome} - {detalhes} - {programa.ano} - {programa.likes}')
