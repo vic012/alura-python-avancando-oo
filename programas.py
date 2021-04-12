@@ -20,17 +20,27 @@ class Programa:
 	def dar_like(self):
 		self._likes += 1
 
+
 class Filme(Programa):
 	def __init__(self, nome, ano, duracao):
 		#Herda herança da classe mãe e repassa os atributos recebidos
 		super().__init__(nome, ano)
 		self.duracao = duracao
 
+	#Método especial para mostrar parte da classe textualmente
+	def __str__(self):
+		return f'Nome: {self._nome} - Ano: {self.ano} - Duração: {self.duracao} minutos - Likes: {self._likes}'
+
 class Serie(Programa):
 	
 	def __init__(self, nome, ano, temporadas):
+		#Herda herança da classe mãe e repassa os atributos recebidos
 		super().__init__(nome, ano)
 		self.temporadas = temporadas
+
+	#Método especial para mostrar parte da classe textualmente
+	def __str__(self):
+		return f'Nome: {self._nome} - Ano: {self.ano} - Temporadas: {self.temporadas} - Likes: {self._likes}'
 
 filme = Filme('homem aranha', 2002, 120)
 filme.dar_like()
@@ -42,5 +52,4 @@ serie.dar_like()
 filmes_e_series = [filme, serie]
 
 for programa in filmes_e_series:
-	detalhes = programa.duracao if hasattr(programa, 'duracao') else programa.temporadas
-	print(f'{programa.nome} - {detalhes} - {programa.ano} - {programa.likes}')
+	print(programa)
