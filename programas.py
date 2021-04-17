@@ -42,10 +42,18 @@ class Serie(Programa):
 	def __str__(self):
 		return f'Nome: {self._nome} - Ano: {self.ano} - Temporadas: {self.temporadas} - Likes: {self._likes}'
 
-class Playlist(list):
+class Playlist:
 	def __init__(self, nome, programas):
 		self.nome = nome
 		self._programas = programas
+
+	#DUCK TYPING
+	
+	#Método que pega algo da classe retorna
+	#Funciona como se fosse uma lista, ele deixa
+	#A classe interável
+	def __getitem__(self, item):
+		return self._programas[item]
 
 	@property
 	def listagem(self):
@@ -74,7 +82,5 @@ demolidor.dar_like()
 listinha = [atlanta, vingadores, demolidor, tmep]
 minha_playlist = Playlist('fim de semana', listinha)
 
-for programa in minha_playlist.listagem:
+for programa in minha_playlist:
     print(programa)
-
-print(f'Tamanho: {len(minha_playlist.listagem)}')
