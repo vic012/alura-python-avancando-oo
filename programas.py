@@ -48,20 +48,22 @@ class Playlist:
 		self._programas = programas
 
 	#DUCK TYPING
-	
+
 	#Método que pega algo da classe retorna
 	#Funciona como se fosse uma lista, ele deixa
 	#A classe interável
 	def __getitem__(self, item):
 		return self._programas[item]
 
+	#Retorna o tamanho de algo, possibilita passar
+	#Para fora da classe um tamanho
+	def __len__(self):
+		return len(self._programas)
+
 	@property
 	def listagem(self):
 		return self._programas
 
-	@property
-	def tamanho(self):
-		return len(self._programas)
 	
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
@@ -82,5 +84,6 @@ demolidor.dar_like()
 listinha = [atlanta, vingadores, demolidor, tmep]
 minha_playlist = Playlist('fim de semana', listinha)
 
+print(f'Tamanho da Playlist: {len(minha_playlist)}')
 for programa in minha_playlist:
     print(programa)
